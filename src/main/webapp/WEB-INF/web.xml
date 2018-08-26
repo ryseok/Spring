@@ -19,6 +19,7 @@
 	<servlet>
 		<servlet-name>appServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		
 		<!--DispatcherServlet : 컨트롤러 전달 -->
 		<init-param>
 			<param-name>contextConfigLocation</param-name>

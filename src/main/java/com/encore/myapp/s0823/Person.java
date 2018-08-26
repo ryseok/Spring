@@ -2,8 +2,24 @@ package com.encore.myapp.s0823;
 
 public class Person {
 	private String name;
-	private String age;
+	private int age;
 	private String job;
+
+	public Person() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Person(String name, int age, String job) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.job = job;
+	}
+
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", age=" + age + ", job=" + job + "]";
+	}
 
 	public String getName() {
 		return name;
@@ -13,11 +29,11 @@ public class Person {
 		this.name = name;
 	}
 
-	public String getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	public void setAge(String age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
@@ -28,10 +44,7 @@ public class Person {
 	public void setJob(String job) {
 		this.job = job;
 	}
-
-	@Override
-	public String toString() {
-		return "Person [name=" + name + ", age=" + age + ", job=" + job + "]";
-	}
+	
+	
 
 }

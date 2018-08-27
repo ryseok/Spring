@@ -7,8 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="" method="post">
+	<form action="result2" method="post">
 		<input type="text" name="username">
+		<br>
+		<%--Person 추가--%>
+		<input type="text" name="name">
 		<button>전송</button>
 	</form>
 </body>

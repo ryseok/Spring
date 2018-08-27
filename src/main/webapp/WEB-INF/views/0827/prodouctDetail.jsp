@@ -7,8 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-상품 이름 : ${productVO.name }
-<br> 
-상품 가격 :	 ${productVO.price }
+상품 이름(productVO) : ${productVO.name }
+<br>
+상품 가격(productVO) :	 ${productVO.price }
+<hr> 
+상품 이름(vo) : ${vo.name }
+<br>
+상품 가격(vo) : ${vo.price }
 </body>
 </html>

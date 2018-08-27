@@ -78,11 +78,19 @@ public class YouController {
 	public String doE(Model m ,RedirectAttributes attr) {
 		ProductVO vo = new ProductVO("꿀", 50000);
 		attr.addFlashAttribute("vo",vo);
-		return "redirect: resources/prodouctDetail.jsp";
+		//return "redirect:/resources/prodouctDetail.jsp";
+		//===>직접 JSP페이지 명시하면 RedirectAttributes 공유 안됨
+		
+		return "redirect:doF";
 	}
 
 //	@RequestMapping("doF")
 //	public String doF() {
 //		return "0827/prodouctDetail";
 //	}
+	
+	@RequestMapping("doF")
+	public String prodouctDetail() {
+		return "0827/prodouctDetail";
+	}
 }

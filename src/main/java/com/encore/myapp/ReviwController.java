@@ -16,7 +16,6 @@ public class ReviwController {
 	}
 	@RequestMapping("re_result")
 	public String result(Person p, HttpServletRequest request) {
-		request.setAttribute("person", p);
 		return "review/re_result";
 	}
 	

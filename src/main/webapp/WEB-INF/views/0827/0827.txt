@@ -1,0 +1,13 @@
+문제1) views/0827 밑에 hello.jsp
+                      -----> 안녕, 스프링프레임워크~!!
+                      
+     src/main/java
+        -----> com.encore.s0827.YouController작성
+                      -----> hello.jsp호출하시오 (가상경로: spring/you/hello)
+                      
+문제2) views/0827 밑에 name_input.jsp
+                      ----->  <input>태그 , name속성 username
+                      -----> YouController를 통해 페이지 출력을 하고 submit했을때 입력값을
+                                                     컨트롤러에서  콘솔 출력하시오.
+                                                     
+문제3) calc_form.jsp를 작성하고 계산버튼 클릭시 계산기 폼 밑에 결과값을 출력하시오.

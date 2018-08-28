@@ -1,4 +1,4 @@
-package com.encore.myapp;
+package com.encore.myapp.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--member.xml-->
+<!--
+	iBatis에서는 루트엘리먼트(sqlMap)에 namespace속성을 생략가능
+	
+	MyBatis에서는 루트엘리먼트(mapper)에 namespacr속성을 생략 불가능
+-->
+<mapper namespace="member">
+	<select id="getTime" resultType="string">
+		select sysdate from dual
+	</select>
+	
+	<insert id="insertMember">
+		insert into tbl_member (userid,userpw,username,email)
+		values (#{userid},#{userpw},#{username},#{email})
+	</insert>
+</mapper>

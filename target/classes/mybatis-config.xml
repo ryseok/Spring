@@ -7,5 +7,6 @@
 	<!--resultType 별명 만들기-->
 	<typeAliases>
 		<package name="com.encore.domain"/>
+		<package name="com.encore.myapp.review"/>
 	</typeAliases>
 </configuration>

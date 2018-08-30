@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="re_board">
+	<!--추가 -->
+	<insert id="create">
+		insert into re_board(bno, title, content, writer)
+		values(re_board_seq.nextval, #{title}, #{content}, #{writer})
+	</insert>
+
+	<!--업데이트 -->
+	<update id="update">
+		update re_board set #{title}, #{content}, #{writer}
+		where bno=#{bno}
+	</update>
+
+	<!--읽기 -->
+	<select id="read" resultType="com.encore.domain.Re_BoardVO">
+		select bno,title,content,writer
+		from re_board
+		where bno=#{bno}
+	</select>
+	
+	<!--전체 읽기-->
+	<select id="readAll" resultType="com.encore.domain.Re_BoardVO">
+		select bno,title,content,writer,regdate
+		from re_board
+		order by bno desc
+	</select>
+	
+	<!--삭제-->
+	<delete id="delete">
+		delete from re_board where bno=#{bno}
+	</delete>
+</mapper>

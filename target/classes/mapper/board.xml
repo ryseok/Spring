@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 제목 		: 게시판 만들기 미션 	-->
+<!-- 작성자 		: rys 			-->
+<!-- 날짜 		: 2018.08.30 	-->
+<!-- 파일명		: board.xml		-->
+<mapper namespace="board">
+	<!--DB 추가(JSP에서 입력하는 것을 추가)-->
+	<insert id="insert">
+		insert into b_board (bno, title, content, writer, regdate)
+					values(board_seq.nextval, #{title}, #{content}, #{writer}, sysdate)
+	</insert>
+	
+	<!--DB 업데이트-->
+	<update id="modify">
+		update b_board set title=#{title}, content=#{content}, writer=#{writer}
+		where bno=#{bno}
+	</update>
+	
+	<!--읽기,수정폼을 위한 sql문-->
+	<select id="read" resultType="com.encore.domain.BoardVO">
+		<!--bno : 생략시 추가 작업 필요-->
+		select title, content, writer
+		from b_board
+		where bno=#{bno}
+	</select>
+	
+	<!--리스트에 출력할 전체행 조회 sql문-->
+	<select id="selectAll" resultType="com.encore.domain.BoardVO">
+		select bno, title, writer, regdate
+		from b_board
+		order by bno desc
+	</select>
+	
+	<!--특정 글번호 삭제-->
+	<delete id="delete">
+		delete from b_board where bno=#{bno}	
+	</delete>
+
+</mapper>

@@ -61,6 +61,7 @@ public class BoardController {
 		return "redirect:listAll";//수정작업확인	
 	}
 	
+	//삭제
 	@RequestMapping(value="remove", method=RequestMethod.POST)
 	public String delete(@RequestParam("bno") Integer bno, RedirectAttributes rttr) throws Exception{
 		service.delete(bno);

@@ -13,7 +13,7 @@ public class Criteria {
 	// IN <----- 사용자 요청 /board/listCri?page=3&perPageNum=10
 	public void setPage(int page) {
 		if(page <= 0) {
-			this.page = 1; //잘못고니 파라미터 전달시 1페이지를 기본페이지
+			this.page = 1; //고의로 잘못 파라미터 전달시 1페이지를 기본페이지
 			return; 
 		}
 		this.page = page;
@@ -29,6 +29,7 @@ public class Criteria {
 
 	// OUT -----> DAO ----> XML(sql)
 	public int getPageStart() {
+		//시작페이지 : (페이지번호 - 1) * 페이지 당 보여주는 개수
 		return (page-1)*perPageNum;
 	}
 

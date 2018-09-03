@@ -39,7 +39,8 @@
 							<tr>
 								<td>${boardVO.bno}</td>
 								<td><a
-									href='/board/readPage${pageMaker.makeQuery(pageMaker.cri.page) }&bno=${boardVO.bno}'>
+									 href='/board/readPage${pageMaker.makeQuery(pageMaker.cri.page) }&bno=${boardVO.bno}'> 
+									                       <%-- ?page=3&perPage=10 --%>
 										${boardVO.title}</a></td>
 								<td>${boardVO.writer}</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
@@ -56,7 +57,7 @@
 
 				<div class="box-footer">
 
-					<div class="text-center">
+					 <div class="text-center">
 						<ul class="pagination">
 
 							<c:if test="${pageMaker.prev}">
@@ -78,12 +79,11 @@
 							</c:if>
 
 						</ul>
-					</div>
+					</div> 
 
 
-					<div class="text-center">
-						<ul class="pagination">
-
+					<%-- <div class="text-center">
+						<ul class="pagination numMove">
 							<c:if test="${pageMaker.prev}">
 								<li><a href="${pageMaker.startPage - 1}">&laquo;</a></li>
 							</c:if>
@@ -92,7 +92,7 @@
 								end="${pageMaker.endPage }" var="idx">
 								<li
 									<c:out value="${pageMaker.cri.page == idx?'class =active':''}"/>>
-									<a href="${idx}">${idx}</a>
+									<a href="${idx }">${idx }</a>
 								</li>
 							</c:forEach>
 
@@ -103,7 +103,7 @@
 
 						</ul>
 					</div>
-
+ --%>
 
 				</div>
 				<!-- /.box-footer-->
@@ -129,18 +129,38 @@
 		alert("처리가 완료되었습니다.");
 	}
 	
-	$(".pagination li a").on("click", function(event){
+	$(".numMove li a").on("click", function(event){
 		
-		event.preventDefault(); 
+		event.preventDefault(); //<a>태그의 기본 이벤트(명시된 페이지로 이동)를 제거!!
+		//<a>태그를 '버튼'클릭하듯이 사용하겠다!!
 		
 		var targetPage = $(this).attr("href");
-		
+		             //$(this)는 이벤트를 발생시킨 엘리먼트!! ---> 여기서는 <a>엘리먼트
+		             //.attr("key") : getAttr    .attr("key","value")  :setAttr(value)
+		//targetPage=3  
+		//targetPage=listPage?page=3&perPageNum=10
+		             
 		var jobForm = $("#jobForm");
-		jobForm.find("[name='page']").val(targetPage);
+		jobForm.find("[name='page']").val(targetPage);//val(),html(),text()
 		jobForm.attr("action","/board/listPage").attr("method", "get");
 		jobForm.submit();
 	});
 	
 </script>
 
+<!-- 
+http://localhost/board/listPage
+  <a>태그 클릭시 폼내의 파라미터 값이 표시됨(get방식이므로)
+http://localhost/board/listPage?page=3&perPageNum=10&age=13
+
+<form id="jobForm" action="/board/listPage" method=get>
+  <input type='hidden' name="page" value=3>
+  <input type='hidden' name="perPageNum" value=10>
+  <input type='hidden' name="age" value=13>
+</form> -->
+
 <%@include file="../include/footer.jsp"%>
+
+
+
+

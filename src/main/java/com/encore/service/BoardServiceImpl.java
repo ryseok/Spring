@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.encore.domain.BoardVO;
+import com.encore.domain.Criteria;
 import com.encore.persistence.BoardDAO;
 
 @Service
@@ -23,8 +24,15 @@ public class BoardServiceImpl implements BoardService{
 	}
 	
 	@Override
+	public List<BoardVO> listCriteria(Criteria cri)throws Exception{
+		return dao.listCriteria(cri);
+		//return dao.listPage2();
+	}
+
+	@Override
 	public List<BoardVO> listAll()throws Exception{
 		return dao.listAll();
+		//return dao.listPage2();
 	}
 	
 	@Override
@@ -40,5 +48,10 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public void delete(Integer bno) throws Exception{
 		dao.delete(bno);
+	}
+	
+	@Override
+	public int listCount() throws Exception{
+		return dao.selectTotalCount();
 	}
 }

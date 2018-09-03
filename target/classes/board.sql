@@ -27,3 +27,5 @@ create sequence tbl_board_seq
 	nocycle
 	nocache;
 	
+select * from tbl_board;
+	

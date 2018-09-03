@@ -10,6 +10,7 @@
 --	viewcnt
 
 --board 테이블 생성
+drop table tbl_board;
 create table tbl_board(
 	bno  number constraint tbl_board_pk primary key,--글번호
 	title  varchar2(100) not null,					--글제목
@@ -20,12 +21,145 @@ create table tbl_board(
 
 );
 
+
 --글번호에 사용할 시퀀스
+drop sequence tbl_board_seq;
 create sequence tbl_board_seq
 	start with 1
 	increment by 1
 	nocycle
 	nocache;
 	
-select * from tbl_board;
-	
+select * from TBL_BOARD;	
+
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
+insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');

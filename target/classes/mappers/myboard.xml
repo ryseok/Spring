@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!--작성일 : 180904 -->
+<!--수업내용 : 페이징처리 복습 -->
+<!--작성자 : rys -->
+<!--파일명 : myboard.xml(입력폼) -->
+<mapper namespace="mboard">
+	<!--DB입력 -->
+	<insert id="insert">
+		insert into tbl_board (bno,title,content,writer)
+		values (tbl_board_seq.nextval,#{title},#{content},#{writer})
+	</insert>
+
+	<!--DB전체조회 -->
+	<select id="selectAll" resultType="BoardVO">
+		select bno,title,writer,regdate,viewcnt
+		from tbl_board
+		order by bno desc
+	</select>
+
+	<!--DB조회, read.jsp와 modify.jsp -->
+	<select id="select" resultType="BoardVO">
+		select bno,title,content,writer
+		from tbl_board
+		where bno=#{bno}
+	</select>
+
+	<!--DB수정 -->
+	<update id="update">
+		update tbl_board
+		set title=#{title},content=#{content},writer=#{writer}
+		where bno=#{bno}
+	</update>
+
+	<!--DB삭제 -->
+	<delete id="delete">
+		delete from tbl_board
+		where bno=#{bno}
+	</delete>
+	
+	<!--전체 행 수 조회-->
+	<select id="totalCount" resultType="int">
+		select count(*)
+		from tbl_board
+	</select>
+</mapper>

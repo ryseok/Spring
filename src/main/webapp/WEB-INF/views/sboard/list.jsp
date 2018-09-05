@@ -25,17 +25,17 @@
 					<select name="searchType">
 						<option value="n"
 							<c:out value="${cri.searchType == null?'selected':''}"/>>
-							---</option>
+							선택</option>
 						<option value="t"
 							<c:out value="${cri.searchType eq 't'?'selected':''}"/>>
-							Title</option>
+							제목</option>
 						<option value="c"
 							<c:out value="${cri.searchType eq 'c'?'selected':''}"/>>
-							Content</option>
+							내용</option>
 						<option value="w"
 							<c:out value="${cri.searchType eq 'w'?'selected':''}"/>>
-							Writer</option>
-						<option value="tc"
+							작성자</option>
+						<%-- <option value="tc"
 							<c:out value="${cri.searchType eq 'tc'?'selected':''}"/>>
 							Title OR Content</option>
 						<option value="cw"
@@ -43,7 +43,7 @@
 							Content OR Writer</option>
 						<option value="tcw"
 							<c:out value="${cri.searchType eq 'tcw'?'selected':''}"/>>
-							Title OR Content OR Writer</option>
+							Title OR Content OR Writer</option> --%>
 					</select> <input type="text" name='keyword' id="keywordInput"
 						value='${cri.keyword }'>
 					<button id='searchBtn'>Search</button>
@@ -145,7 +145,7 @@
 									+ '${pageMaker.makeQuery(1)}'
 									+ "&searchType="
 									+ $("select option:selected").val()
-									+ "&keyword=" + $('#keywordInput').val();
+									+ "&keyword=" + encodeURIComponent($('#keywordInput').val());
 
 						});
 

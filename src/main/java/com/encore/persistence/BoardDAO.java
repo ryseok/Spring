@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.encore.domain.BoardVO;
 import com.encore.domain.Criteria;
+import com.encore.domain.SearchCriteria;
 
 public interface BoardDAO {
 	//create, read, update, delete, listAll
@@ -34,4 +35,8 @@ public interface BoardDAO {
 
 	//페이징 전체조회
 	public int selectTotalCount() throws Exception;
+	
+	//검색어 관련 조회
+	public List<BoardVO> listSearch(SearchCriteria cri) throws Exception;
+	public int listSearchCount(SearchCriteria cri) throws Exception;
 }

@@ -6,6 +6,7 @@
 
 ###pom.properties###
 *.properties
+.pom.properties
 
 ### Eclipse ###
 

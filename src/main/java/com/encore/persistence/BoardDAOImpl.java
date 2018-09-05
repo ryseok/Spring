@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import com.encore.domain.BoardVO;
 import com.encore.domain.Criteria;
+import com.encore.domain.SearchCriteria;
 
 @Repository
 public class BoardDAOImpl implements BoardDAO{
@@ -72,5 +73,16 @@ public class BoardDAOImpl implements BoardDAO{
 	@Override
 	public int selectTotalCount() throws Exception{
 		return session.selectOne("board.selectTotalCount");
+	}
+
+	@Override
+	public List<BoardVO> listSearch(SearchCriteria cri) throws Exception {
+		RowBounds bounds = new RowBounds(cri.getPageStart(),cri.getPerPageNum());
+		return session.selectList("board.listSearch",cri,bounds);
+	}
+
+	@Override
+	public int listSearchCount(SearchCriteria cri) throws Exception {
+		return session.selectOne("board.listSearchCount",cri);
 	}
 }

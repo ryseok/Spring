@@ -1,5 +1,8 @@
 package com.encore.domain;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+
 import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -53,6 +56,35 @@ public class PageMaker {
 	private int displayPageNum = 10;// 한 화면에 출력될 레코드(행) 수
 	private Criteria cri;
 
+	//180905 추가
+	//URL 쿼리 문자열 생성
+	public String makeSearch(int page) {//URL쿼리문자열 생성
+		   //?page=3&perPageNum=10&searchType=c&keyword=안녕
+		   UriComponents uriComponents = 
+				   UriComponentsBuilder.newInstance()
+				   .queryParam("page", page)
+				   .queryParam("perPageNum", cri.getPerPageNum())
+				   .queryParam("searchType", ((SearchCriteria)cri).getSearchType())
+				   .queryParam("keyword", encoding(((SearchCriteria)cri).getKeyword()))
+				   .build();
+		   return uriComponents.toString();
+		}//makeSearch
+	
+	//180905 추가
+	private String encoding(String str) {
+		if(str == null || str.trim().length()==0) {
+			return "";
+		}
+		
+		try {
+			str = URLEncoder.encode(str, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		return str;
+	}
+	
 	public int getTotalCount() {
 		return totalCount;
 	}

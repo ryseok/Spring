@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 날짜 	: 180905 -->
+<!-- 작성자	: rys -->
+<!-- 제목 	: 댓글 -->
+<!-- 파일명 	: reply.xml -->
+
+<!--MyBatis사용시 가장 주의할 점-->
+<!--
+	1. 루트엘리먼트에 반드시 namespace설정
+	2. select엘리먼트 작성시 반드시 resultType을 정의
+	3. resultType 또는 parameterType에는 반드시 존재하는 클래스만 정의
+-->
+<mapper namespace="reply">
+	<!-- rno,bno,replytext,replyer,regdate,updatedate -->
+	
+	<!--특정 게시물에 대한 댓글 조회-->
+	<select id="list" resultType="ReplyVO">
+		select rno,bno,replytext,replyer,regdate,updatedate
+		from tbl_reply
+		where bno=#{bno}
+		order by rno desc
+	</select>
+	
+	<!--댓글추가-->
+	<insert id="create">
+		insert into tbl_reply (rno,bno,replytext,replyer)
+		values(tbl_reply_seq.nextval,#{bno},#{replytext},#{replyer})
+	</insert>
+	
+	<!--특정 댓글 수정-->
+	<update id="update">
+		update tbl_reply
+		set replytext=#{replytext},replyer=#{replyer},updatedate=sysdate
+		where rno=#{rno}
+	</update>
+	
+	<!--특정 댓글 삭제-->
+	<delete id="delete">
+		delete from tbl_reply
+		where rno=#{rno}
+	</delete>
+</mapper>
+
+

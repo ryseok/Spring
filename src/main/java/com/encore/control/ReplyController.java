@@ -10,6 +10,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.encore.domain.ReplyVO;
 import com.encore.service.ReplyService;
+//날짜	 : 180905
+//작성자	 : rys
+//제목	 : 댓글
+//파일명	 : ReplyController.java
+
+
 
 //Ajax 전용 컨트롤러
 @RestController

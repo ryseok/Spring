@@ -8,7 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.encore.domain.ReplyVO;
 import com.encore.persistence.ReplyDAO;
-
+//날짜	 : 180905
+//작성자	 : rys
+//제목	 : 댓글
+//파일명	 : ReplyServiceImpl.java
 @Service
 public class ReplyServiceImpl implements ReplyService{
 	

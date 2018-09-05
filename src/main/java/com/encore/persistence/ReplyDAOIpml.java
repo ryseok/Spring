@@ -8,7 +8,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.encore.domain.ReplyVO;
-
+//날짜	 : 180905
+//작성자	 : rys
+//제목	 : 댓글
+//파일명	 : ReplyDAOIpml.java
 @Repository
 public class ReplyDAOIpml implements ReplyDAO{
 	

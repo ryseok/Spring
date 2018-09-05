@@ -22,11 +22,14 @@ create table tbl_reply(
 );
 
 alter table tbl_reply
+--===>alter table : 테이블에 칼럼 추가,수정,삭제 가능
+
 add constraint tbl_reply_pk primary key(rno);
+--===>primary key 제약 조건은 테이블에 기본키
+--===>중복된 데이터를 저장 못하도록 하는것
 
 alter table tbl_reply
-add constraint tbl_reply_fk foreign key(bno) 
- references tbl_board(bno);
+add constraint tbl_reply_fk foreign key(bno) references tbl_board(bno);
  
 drop sequence tbl_reply_seq;
 create sequence tbl_reply_seq

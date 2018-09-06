@@ -51,6 +51,7 @@ pom.xml
 /spring-*/build
 /src/asciidoc/build
 */target/*
+target/classes/mappers/reply.xml
 
 # Code Recommenders
 .recommenders/

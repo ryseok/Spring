@@ -33,7 +33,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!--특정 댓글 수정-->
 	<update id="update">
 		update tbl_reply
-		set replytext=#{replytext},replyer=#{replyer},updatedate=sysdate
+		set replytext=#{replytext},updatedate=sysdate
 		where rno=#{rno}
 	</update>
 	
@@ -42,6 +42,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from tbl_reply
 		where rno=#{rno}
 	</delete>
+	
+	<!--특정게시물의 총 댓글수-->
+	<select id="count" resultType="int">
+		select count(*) from tbl_reply where bno=#{bno}
+	</select>
 </mapper>
 
 

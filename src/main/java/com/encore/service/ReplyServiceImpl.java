@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
 
+import com.encore.domain.Criteria;
 import com.encore.domain.ReplyVO;
 import com.encore.persistence.ReplyDAO;
 //날짜	 : 180905
@@ -37,5 +38,14 @@ public class ReplyServiceImpl implements ReplyService{
 	public void removeReply(int rno) throws Exception {
 		dao.delete(rno);
 	}
-
+	
+	@Override
+	public List<ReplyVO> listReplyPage(int bno, Criteria cri) throws Exception{
+		return dao.listPage(bno, cri);
+	}
+	
+	@Override
+	public int count(int bno) throws Exception{
+		return dao.count(bno);
+	}
 }

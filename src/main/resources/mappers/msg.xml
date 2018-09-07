@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- msg.xml -->
+<mapper namespace="msg">
+
+	<!-- '길동'이 '라임'에게 메시지 전송 -->
+	<insert id="create">
+		insert into tbl_msg (mno,senderid, receiverid, msg)
+		values (tbl_msg_seq.nextval,#{senderid},#{receiverid},#{msg})
+	</insert>
+
+	<!-- '라임'이 메시지를 읽기 -->
+	<select id="readMsg" resultType="MsgVO">
+		select * from tbl_msg
+		where mno=#{mno}
+	</select>
+
+	<!-- 메시지를 읽을 경우 opendate변경 null==>읽은 날짜의 시간 -->
+	<update id="updateState">
+		update tbl_msg set opendate=sysdate
+		where mno=#{mno}
+	</update>
+
+</mapper>
+
+

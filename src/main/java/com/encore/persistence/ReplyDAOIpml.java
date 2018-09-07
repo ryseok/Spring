@@ -52,4 +52,11 @@ public class ReplyDAOIpml implements ReplyDAO{
 	public int count(int bno) throws Exception{
 		return sqlSession.selectOne("reply.count",bno);
 	}
+
+	//게시물 얻기
+	@Override
+	public int getBno(int rno) throws Exception {
+		
+		return sqlSession.selectOne("reply.getBno",rno);
+	}
 }

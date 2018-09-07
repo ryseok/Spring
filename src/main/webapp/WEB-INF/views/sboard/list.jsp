@@ -73,7 +73,7 @@
 								<td>${boardVO.bno}</td>
 								<td><a
 									href='/sboard/readPage${pageMaker.makeSearch(pageMaker.cri.page) }&bno=${boardVO.bno}'>
-										${boardVO.title} </a></td>
+										${boardVO.title} </a>[${boardVO.replycnt }]</td>
 								<td>${boardVO.writer}</td>
 								<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm"
 										value="${boardVO.regdate}" /></td>
@@ -145,7 +145,9 @@
 									+ '${pageMaker.makeQuery(1)}'
 									+ "&searchType="
 									+ $("select option:selected").val()
-									+ "&keyword=" + encodeURIComponent($('#keywordInput').val());
+									+ "&keyword="
+									+ encodeURIComponent($('#keywordInput')
+											.val());
 
 						});
 

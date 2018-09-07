@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- point.xml -->
+<mapper namespace="point">
+
+
+  <!-- 보낸사람(길동:10) 또는 읽은사람(라임:5)의 포인트 변경 -->
+  <update id="updatePoint">
+     update tbl_user set userpoint = userpoint+#{point}
+     where userid=#{userid}
+  </update>
+  
+  
+</mapper>
+
+

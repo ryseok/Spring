@@ -1,6 +1,10 @@
 package com.encore.persistence;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 
@@ -84,5 +88,20 @@ public class BoardDAOImpl implements BoardDAO{
 	@Override
 	public int listSearchCount(SearchCriteria cri) throws Exception {
 		return session.selectOne("board.listSearchCount",cri);
+	}
+
+	@Override
+	public void updateReplyCnt(int bno, int amount) throws Exception {
+		Map<String, Integer> map = new HashMap<>();
+		map.put("bno", bno);
+		map.put("amount", amount);
+		session.update("board.updateReplyCnt",map);
+		
+	}
+
+	@Override
+	public void updateViewCnt(int bno) throws Exception {
+		session.update("board.updateViewCnt",bno);
+		
 	}
 }

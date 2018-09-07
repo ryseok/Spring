@@ -91,7 +91,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 	<select id="listSearch" resultType="BoardVO">
-		select bno,title,content,writer,regdate,viewcnt
+		select bno,title,content,writer,regdate,viewcnt,replycnt
 		from tbl_board
 		<include refid="search"></include>
 		order by bno desc
@@ -130,7 +130,19 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		delete from tbl_board
 		where bno=#{bno}
 	</delete>
-
+	
+	<!--특정 게시물에 대한 댓글 카운터 증가 또는 감소-->
+	<update id="updateReplyCnt">
+		update tbl_board
+		set replycnt = replycnt + #{amount}
+		where bno=#{bno}
+	</update>
+	
+	<!--게시물 읽을 때 마다 증가-->
+	<update id="updateViewCnt">
+		update tbl_board set viewcnt = viewcnt+1
+		where bno=#{bno} 
+	</update>
 </mapper>
 
 

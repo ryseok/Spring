@@ -30,8 +30,19 @@ create sequence tbl_board_seq
 	nocycle
 	nocache;
 	
-select * from TBL_BOARD;	
+select * from TBL_BOARD;
 
+--댓글 추가 카운트
+alter table tbl_board
+add replycnt number default 0;
+
+--댓글 카운트 동기화
+update TBL_BOARD
+set replycnt=(select count(*)
+              from TBL_REPLY
+              where bno=TBL_BOARD.bno);
+              
+              
 insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
 insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');
 insert into tbl_board (bno,title,content,writer) values (tbl_board_seq.nextval,'타이틀','내용','홍길동');

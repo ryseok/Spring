@@ -40,4 +40,15 @@ public class HomeController {
 	public String ajaxTest() {
 		return "ajax_test";
 	}
+	
+	@RequestMapping("hello")
+	public void doA() {
+		System.out.println("doA()...call");
+	}
+	
+	@RequestMapping("hi")
+	public void doB(Model model) {
+		System.out.println("doB()...call");
+		model.addAttribute("result","추석엔 대피소(카페)로 고고싱");
+	}
 }

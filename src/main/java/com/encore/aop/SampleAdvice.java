@@ -21,12 +21,12 @@ public class SampleAdvice {
        System.out.println(Arrays.toString(jp.getArgs()));
 	}*/
 	
-	@Around ("execution(* com.encore.service.MsgService*.*(..))")//실행할 메소드 매핑
+	@Around ("execution(* com.encore.service.MsgService*.*(..))") //실행할 메소드 매핑
 	public Object timeLog(ProceedingJoinPoint jp) throws Throwable {
 		System.out.println("---------------<전처리>-------------------");
 		long start = System.currentTimeMillis();
 
-		Object result = jp.proceed();//실제 메소드 호출
+		Object result = jp.proceed(); //실제 메소드 호출
 		
 		System.out.println("---------------<후처리>-------------------");
 		long end = System.currentTimeMillis();

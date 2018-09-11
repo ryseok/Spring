@@ -29,7 +29,14 @@
   </head>
       <!-- jQuery 2.1.4 -->
     <script src="/resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
-    
+     <script type="text/javascript">
+       $(function(){
+    	   $('.btn-signout').click(function(){
+    		   self.location='/user/logout';
+    	   });
+    	   
+       });
+    </script>
   <body class="skin-blue sidebar-mini">
     <div class="wrapper">
       
@@ -273,7 +280,7 @@
                       <a href="#" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <a href="#" class="btn btn-default btn-flat btn-signout">Sign out</a>
                     </div>
                   </li>
                 </ul>

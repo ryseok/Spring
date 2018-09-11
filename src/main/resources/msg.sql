@@ -35,12 +35,20 @@ add constraint tbl_msg_fk1 foreign key (senderid)  references tbl_user(userid);
 alter table tbl_msg 
 add constraint tbl_msg_fk2 foreign key (receiverid)  references tbl_user(userid);
 
+alter table tbl_user
+add sessionkey varchar2(50) default 'none' not null;
+
+alter table tbl_user
+add sessionlimit date;
+
 create sequence tbl_msg_seq
        start with 1
        increment by 1
        nocycle
        nocache;
-           
+  
 insert into tbl_user (userid, userpw, username) values ('gildong','1234','홍길동');
 insert into tbl_user (userid, userpw, username) values ('lime','2222','길라임');
 insert into tbl_user (userid, userpw, username) values ('juwon','3333','김주원');
+
+select * from TBL_USER;

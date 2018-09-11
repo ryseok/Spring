@@ -1,5 +1,6 @@
 package com.encore.interceptor;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -33,6 +34,16 @@ public class LoginInterceptor extends HandlerInterceptorAdapter{
 			System.out.println("새로운 로그인 성공");
 			session.setAttribute("login", userVO);
 			//response.sendRedirect("/"); //로그인 성공하면 홈페이지 이동
+			
+			if(request.getParameter("useCookie")!=null) { //체크박스가 체크 되었을때
+				String sessionId = session.getId();
+				System.out.println("세션 아이디 : " + sessionId);
+				Cookie c = new Cookie("loginCookie", sessionId);
+				c.setPath("/");
+				c.setMaxAge(60*60*24*7); //유효기간
+				response.addCookie(c); //브라우저 사용자의 pc에 write하기
+			}
+			
 			Object dest = session.getAttribute("dest");
 			response.sendRedirect((dest != null)? (String) dest:"/");
 		}

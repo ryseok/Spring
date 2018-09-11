@@ -51,26 +51,37 @@ public class UserContoller {
 		return "/user/loginPost";
 	}
 	
-	@RequestMapping(value="/logout", method=RequestMethod.GET)
-	public String logout(HttpServletRequest request, HttpSession session, HttpServletResponse response) throws Exception{
-		Object obj = session.getAttribute("login");
+	//로그아웃
+	@RequestMapping("logout")
+	public String logout(HttpServletRequest request,
+			             HttpServletResponse response,
+			             HttpSession session)throws Exception{
+	   Object ob = session.getAttribute("login");
+	   if(ob!=null) {//로그인 정보가 있다면
+		   UserVO vo = (UserVO) ob;
+		   
+		   session.invalidate();//서버와의 세션정보 삭제
+		   
+		   Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
+		   //브라우저 사용자PC로 부터 'loginCookie'를 key로 해서 저장된 데이터 얻기
+		   
+		   if(loginCookie!=null) {//저장된 'loginCookie'가 있다면
+			   loginCookie.setPath("/");
+			   loginCookie.setMaxAge(0);//쿠키 만료기간 없앰.
+			   
+			   response.addCookie(loginCookie);
+			   //사용자 PC에 위에 설정된 값으로 다시 Write!!
+			   
+			   service.keepLogin(vo.getUserid(), session.getId(),
+					             new Date());
+			   //DB에  해당User의 sessionId변경
+			   //해당User의  sessionLimit를 현재 날짜로 변경함으로써
+			   //자동 로그인 되지 않게 함.
+			   //----> where sessionlimit > sysdate
+		   }
+	   }
 		
-		if(obj != null) {
-			UserVO vo = (UserVO) obj;
-			
-			session.removeAttribute("login");
-			session.invalidate();
-			
-			Cookie loginCookie = WebUtils.getCookie(request, "loginCookie");
-			
-			if(loginCookie != null) {
-				loginCookie.setPath("/");
-				loginCookie.setMaxAge(0);
-				response.addCookie(loginCookie);
-				service.keepLogin(vo.getUserid(), session.getId(), new Date());
-			}
-		}
-		return "user/logout";
+	   return "/user/login";
 	}
 }
 

@@ -1,9 +1,16 @@
 package com.encore.control;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.UUID;
+
+import javax.annotation.Resource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,8 +30,29 @@ public class UploadController {
 	//<form action="" id="from1" method="post" enctype="multipart/form-data">
 	//===> 데이터의 처리는 프로젝트의 시작단게에서 적용한 multipartResolver 설정하여 처리됨
 	@RequestMapping(value="uploadForm", method=RequestMethod.POST)
-	public void uploadFormResult(MultipartFile file, Model model) throws Exception{
+	public String uploadFormResult(MultipartFile file, Model model) throws Exception{
 		System.out.println("업로드 확인>>>" + file.getSize());
 		//===>file.getSize() 정보추줄 하기위 한 작업, 즉 테스트 작업
+		
+		String savedName = uploadFile(file.getOriginalFilename(),file.getBytes());
+		
+		model.addAttribute("savedName",savedName);
+		
+		return "uploadResult";
+		
 	}
+	
+	private String uploadFile(String originalName, byte[] fileData) throws IOException {
+		UUID uid = UUID.randomUUID();
+		
+		String savedName = uid.toString() + "_" + originalName;
+		
+		File target = new File(uploadPath,savedName);
+		
+		FileCopyUtils.copy(fileData, target);
+		return savedName;
+	}
+
+	@Resource(name="uploadPath")
+	private String uploadPath;
 }

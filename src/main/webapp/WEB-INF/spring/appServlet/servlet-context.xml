@@ -69,6 +69,21 @@
 
 			<beans:ref bean="AuthInterceptor" />
 		</interceptor>
-
-	</interceptors>  
+	</interceptors>
+	<!-- 
+		  브라우저가 multipart/form-data
+		  데이터로 보내는 파일을 처리하기 위한 MultipartResolver 클래스를 
+		 bean으로 등록
+	-->
+	<beans:bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		
+		<!--10485760 : Test용으로 10mb 제한두었음-->
+ 		<beans:property name="maxUploadSize" value="10485760"></beans:property>
+	</beans:bean>
+	<!--서버의 파일 저장 경로 설정-->
+	<!--이유는 서비스 할 때 데이터베이스에서 읽어야 하는 등 성능상에 문제가 있을 수 있다-->
+	<beans:bean id="uploadPath" class="java.lang.String">
+		<beans:constructor-arg value="C:\\rys\\upload"></beans:constructor-arg>
+	</beans:bean>
 </beans:beans>

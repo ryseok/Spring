@@ -38,35 +38,37 @@
 	<context:component-scan
 		base-package="com.encore.control" />
 
-	<!--인터셉터 등록-->
-	<beans:bean class="com.encore.interceptor.MyInterceptor" id="MyInterceptor"></beans:bean>
-	<beans:bean class="com.encore.interceptor.LoginInterceptor" id="LoginInterceptor"></beans:bean>
-	<beans:bean class="com.encore.interceptor.AuthInterceptor" id="AuthInterceptor"></beans:bean>
+	<!--인터셉터 등록 -->
+	<beans:bean class="com.encore.interceptor.MyInterceptor"
+		id="MyInterceptor"></beans:bean>
+	<beans:bean class="com.encore.interceptor.LoginInterceptor"
+		id="LoginInterceptor"></beans:bean>
+	<beans:bean class="com.encore.interceptor.AuthInterceptor"
+		id="AuthInterceptor"></beans:bean>
 	<interceptors>
 		<interceptor>
-			<mapping path="/hello"/>
-			<mapping path="/hi"/>
-			<beans:ref bean="MyInterceptor"/>			
+			<mapping path="/hello" />
+			<mapping path="/hi" />
+			<beans:ref bean="MyInterceptor" />
 		</interceptor>
-		
-		<interceptor>
-			<mapping path="/user/loginPost"/>
-			<beans:ref bean="LoginInterceptor"/>
-		</interceptor>
-		
-		<interceptor>
-			<!--게시물 쓰기-->
-			<mapping path="/sboard/register"/>
-			
-			<!--게시물 수정-->
-			<mapping path="/sboard/modifyPage"/>
-			
-			<!--게시물 삭제-->
-			<mapping path="/sboard/removePage"/>
-			
-			<beans:ref bean="AuthInterceptor"/>
-		</interceptor>
-		
-	</interceptors>
 
+		<interceptor>
+			<mapping path="/user/loginPost" />
+			<beans:ref bean="LoginInterceptor" />
+		</interceptor>
+
+		<interceptor>
+			<!--게시물 쓰기 -->
+			<mapping path="/sboard/register" />
+
+			<!--게시물 수정 -->
+			<mapping path="/sboard/modifyPage" />
+
+			<!--게시물 삭제 -->
+			<mapping path="/sboard/removePage" />
+
+			<beans:ref bean="AuthInterceptor" />
+		</interceptor>
+
+	</interceptors>  
 </beans:beans>

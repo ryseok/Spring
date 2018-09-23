@@ -51,14 +51,20 @@
 	<!-- DB관련클래스 등록(DAO==>Repository객체) -->
 	<context:component-scan
 		base-package="com.encore.persistence"></context:component-scan>
+	<context:component-scan
+		base-package="com.encore.persistence.test"></context:component-scan>
 
 	<!-- Service등록 -->
 	<context:component-scan
 		base-package="com.encore.service"></context:component-scan>
+	<context:component-scan
+		base-package="com.encore.service.test"></context:component-scan>
 
 	<!--AOP : 공통 관심사항 코드 등록 -->
 	<context:component-scan
 		base-package="com.encore.aop"></context:component-scan>
+	<context:component-scan
+		base-package="com.encore.aop.test"></context:component-scan>
 
 	<!-- 메일 보내기 -->
 	<bean id="mailSender"

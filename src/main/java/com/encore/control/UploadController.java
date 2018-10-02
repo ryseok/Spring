@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.inject.Inject;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,8 +16,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.encore.domain.BoardVO;
+import com.encore.domain.UploadVO;
+import com.encore.service.UploadService;
+
 @Controller
 public class UploadController {
+	
+	@Inject
+	UploadService uploadService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(UploadController.class);
 	
@@ -30,14 +38,14 @@ public class UploadController {
 	//<form action="" id="from1" method="post" enctype="multipart/form-data">
 	//===> 데이터의 처리는 프로젝트의 시작단게에서 적용한 multipartResolver 설정하여 처리됨
 	@RequestMapping(value="uploadForm", method=RequestMethod.POST)
-	public String uploadFormResult(MultipartFile file, Model model) throws Exception{
+	public String uploadFormResult(UploadVO uploadVO, MultipartFile file, Model model) throws Exception{
 		System.out.println("업로드 확인>>>" + file.getSize());
 		//===>file.getSize() 정보추줄 하기위 한 작업, 즉 테스트 작업
 		
 		String savedName = uploadFile(file.getOriginalFilename(),file.getBytes());
-		
+		uploadVO.setFileload(savedName);
 		model.addAttribute("savedName",savedName);
-		
+		uploadService.insert(uploadVO);
 		return "uploadResult";
 		
 	}

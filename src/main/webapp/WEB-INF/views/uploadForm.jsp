@@ -13,16 +13,16 @@
 	}
 </style>
 <script type="text/javascript">
-	function addFilePath(msg) {
-		alert(msg);
-		document.getElementById("form1").reset();
-	}
+// 	function addFilePath(msg) {
+// 		alert(msg);
+// 		document.getElementById("form1").reset();
+// 	}
 </script>
 </head>
 <body>
 	<!--enctype="multipart/form-data"는  multipart 방식으로 데이터가 전달된다는 것을 의미-->
 	<form action="uploadForm" id="from1" method="post" enctype="multipart/form-data" target="zeroFrame">
-		<input type="file" name="file"> <br>
+		<input type="file" name=file> <br>
 		<button>업로드</button>
 	</form>
 	<iframe name="zeroFrame"></iframe>
